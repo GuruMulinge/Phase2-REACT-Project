@@ -7,7 +7,7 @@ function AddPost({posts, onPostClick}){
             <h5>Blog Posts</h5>
         <div className = "addblog-list-container">
             {posts.map(post =>(
-                <AddPost post={post} key={post.id} onPost={() => onPostClick(post)}>
+                <AddPost post={post.title} key={post.id} onPost={() => onPostClick(post)}>
                 <button className='submit-btn'> Add Post </button>
                 </AddPost>
             ))}
