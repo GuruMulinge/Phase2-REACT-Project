@@ -1,21 +1,56 @@
-import React from "react";
-import './blog.css';
+import React, { useState } from "react";
 
+function AddBlogForm({ handleOnSubmit, handleOnCancel }) {
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [body, setBody] = useState("");
+  const [author, setAuthor] = useState("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleOnSubmit({ title, image, body, author });
+  };
 
-function AddBlogForm({ handleOnClear, handleOnSubmit }){
-    return(
-        <div className='form'>
-            <h2>Add Blog Post</h2>
-            <h3 className='title-space'>Post Title</h3>
-            <h3 className='image-space'>Post Image Link</h3>
-            <h3 className='body-space'> Post Body</h3>
-            <h3 className='author-space'>Post Author</h3>
-            <button onClick={()=>handleOnClear(post.value)}>Clear</button>
-            <button onClick={()=>handleOnSubmit(post.value)}>Add Post</button>
-        </div>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Add Blog Post</h2>
+      <label>
+        Post Title:
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </label>
+      <label>
+        Post Image Link:
+        <input
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+      </label>
+      <label>
+        Post Body:
+        <textarea
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        ></textarea>
+      </label>
+      <label>
+        Post Author:
+        <input
+          type="text"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+      </label>
+      <button type="submit">Add Post</button>
+      <button type="button" onClick={handleOnCancel}>
+        Cancel
+      </button>
+    </form>
+  );
 }
-
 
 export default AddBlogForm;
