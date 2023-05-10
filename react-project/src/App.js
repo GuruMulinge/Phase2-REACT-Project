@@ -1,27 +1,33 @@
-
 import React, { useState,useEffect } from "react";
-import BlogPage from "./components/BlogPage";
 import BlogsList from "./components/BlogsList";
+import BlogDisplay from "./components/BlogDisplay";
+import './components/blog.css';
 
 const App = () => {
 
     const[posts,setBlogPosts] = useState([]);
-   // const[display,setDisplyPosts] = useState([]);
-     console.log(posts);
+    const[displayPost,setDisplayPost] = useState([]);
+    // const [list, setBlogLists] = useState([]);
+
     useEffect(() =>{
           fetch("http://localhost:3005/posts")
          .then(res => res.json())
          .then((posts)=>{
-            setBlogPosts(posts)
+            setBlogPosts(posts);
+            setDisplayPost(posts[0]);
         })
          .catch(err => console.log(err));
     },[]);
+    const handleBlogTitleClick = (post) => {
+        setDisplayPost(post);
+    }
 
+
+    console.log(posts);
     return(
-        <div>
-             <BlogPage posts={posts}/>
-             <BlogsList posts={posts}/>
-             
+        <div className="Blog-Page">
+             <BlogsList posts={posts} handleOnClick={handleBlogTitleClick}/>
+             {/* <BlogDisplay post={displayPost}/> */}
         </div>
 
     );
