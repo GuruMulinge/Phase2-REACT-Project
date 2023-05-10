@@ -1,0 +1,21 @@
+import React from "react";
+import './blog.css';
+
+
+
+function AddBlogForm({ handleOnClear, handleOnSubmit }){
+    return(
+        <div className='form'>
+            <h2>Add Blog Post</h2>
+            <h3 className='title-space'>Post Title</h3>
+            <h3 className='image-space'>Post Image Link</h3>
+            <h3 className='body-space'> Post Body</h3>
+            <h3 className='author-space'>Post Author</h3>
+            <button onClick={()=>handleOnClear(post.value)}>Clear</button>
+            <button onClick={()=>handleOnSubmit(post.value)}>Add Post</button>
+        </div>
+    );
+}
+
+
+export default AddBlogForm;

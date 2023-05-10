@@ -1,7 +1,7 @@
 import React from 'react';
-import './post.css';
+import './blog.css';
 
-function PostTitle({ post, handleOnClick }){
+function BlogTitle({ post, handleOnClick }){
     return(
         <div className='post-title' onClick={()=>handleOnClick(post)}>
             <h4>{post.title}</h4>
@@ -10,4 +10,4 @@ function PostTitle({ post, handleOnClick }){
 }
 
 
-export default PostTitle;
+export default BlogTitle;

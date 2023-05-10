@@ -1,12 +1,12 @@
 
 import React, { useState,useEffect } from "react";
-import PostPage from "./components/PostPage";
-import PostList from "./components/PostList";
+import BlogPage from "./components/BlogPage";
+import BlogsList from "./components/BlogsList";
 
 const App = () => {
 
     const[posts,setBlogPosts] = useState([]);
-    // const[display,setDisplyPosts] = useState([]);
+   // const[display,setDisplyPosts] = useState([]);
      console.log(posts);
     useEffect(() =>{
           fetch("http://localhost:3005/posts")
@@ -19,8 +19,8 @@ const App = () => {
 
     return(
         <div>
-             <PostPage posts={posts}/>
-             <PostList posts={posts}/>
+             <BlogPage posts={posts}/>
+             <BlogsList posts={posts}/>
              
         </div>
 

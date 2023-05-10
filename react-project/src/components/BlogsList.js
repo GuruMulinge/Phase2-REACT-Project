@@ -1,20 +1,22 @@
 import React from 'react';
-import PostTitle from './PostTitle';
+import BlogTitle from './BlogTitle';
+import './blog.css';
 
 
-function PostList({posts, handleOnBlog}) {
-
+function BlogList({posts, handleOnBlog, handleOnPost }) {
     return(
         <div className = 'blog-list-container'>
             <div className='card-header'>
                 <h5>Blog Posts</h5>
-                <button className='post-btn'>Add Post</button>
+                <button className='post-btn' onClick={()=>handleOnPost()}>Add Post</button>
             </div>
             <div className='blog-list'>
                 {posts.map(post =>{
                     return(
+                        <div>
                         <div onClick={()=>handleOnBlog(post)}>
-                            <PostTitle post={post} key={post.id}/>
+                            <BlogTitle post={post} key={post.id}/>                           
+                        </div>
                         </div>    
                     );
             })}
@@ -26,4 +28,4 @@ function PostList({posts, handleOnBlog}) {
 }
 
 
-export default PostList;
+export default BlogList;
