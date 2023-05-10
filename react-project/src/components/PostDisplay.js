@@ -8,7 +8,8 @@ function PostDisplay({ post }){
             <img src={post_image} alt={post.title} />
             <p>{post.body}</p>
             <p>Author: {post.author}</p>
-            <p>Likes:{post.likes} <br> Dislikes:{post.dislike}</p>
+            <p>Likes:{post.likes}</p>
+            <p>Dislikes:{post.dislike}</p>
         </div>
     );
 }
